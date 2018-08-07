@@ -14,33 +14,42 @@ int main() {
 	int cases=0;
 	while(t--){
 		++cases;
-		long long n,k,v;
+		unsigned long long n,k,v;
 		cin>>n>>k>>v;
 		vector <string> vect;
-		vector <string> ans;
+		vector <int> ans;
 		for(int i=1;i<=n;i++){
-			string x=to_string(i);
 			string y;
 			cin>>y;
-			x+=y;
-			vect.push_back(x);
+			vect.push_back(y);
 		}
+		
+		
 		int current_last=v*k%n;
 		int current=current_last;
 		for(int i=0;i<k;i++){
 		if(current==0){
 		current=n;
 		}
-		string y=vect[current-1];
-		ans.push_back(y);
+	
+		
+	
+		ans.push_back(current);
 		current-=1;
+		
 		}
+		
 		sort(ans.begin(),ans.end());
 		cout<<"Case #"<<cases<<": ";
+		int len;
 		for(int i=0;i<ans.size();i++){
-		cout<<ans[i]<<" ";	
+		cout<<vect[ans[i]-1]<<" ";	
 		}
 		cout<<endl;
+
 	}
+	
+	
+	
  	return 0;
 }
